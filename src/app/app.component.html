@@ -17,7 +17,8 @@
     <div class="card-body">
     <h5 class="card-title">{{ item.name }}</h5>
     <span class="card-text">Also knows as: {{ item.biography.aliases }}</span><br>
-    <span class="card-text">Full name: {{ item.biography.fullName }}</span>
+    <span class="card-text">Full name: {{ item.biography.fullName }}</span><br>
+    <span class="card-text" *ngIf="item.work.occupation!=='-'">Occupation: {{ item.work.occupation }}</span>
     </div>
     </div>
 </div>

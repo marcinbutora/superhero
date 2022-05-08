@@ -1,4 +1,4 @@
-
+<h1>{{ title }}</h1>
 <form id="filterSearch">
   <div class="input-group pt-5 pb-5">
 <input type="text" class="form-control" [(ngModel)]="termToSearch" name="searchName" placeholder="Wpisz aby szukać">
@@ -13,7 +13,7 @@
 <div class="row row-cols-1 row-cols-md-3 g-4 center-class"
 >
   <div class="card" style="width: 18rem" *ngFor="let item of allListToSave | filterSearch: termToSearch">
-    <img class="card-img-top" src="{{ item.images.lg }}">
+    <img class="card-img-top" src="{{ item.images.md }}">
     <div class="card-body">
     <h5 class="card-title">{{ item.name }}</h5>
     <span class="card-text">Also knows as: {{ item.biography.aliases }}</span><br>

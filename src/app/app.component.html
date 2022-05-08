@@ -1,10 +1,23 @@
 
 <form id="filterSearch">
-<input type="text" [(ngModel)]="termToSearch" name="searchName" placeholder="Wpisz aby szukać">
+  <div class="input-group pt-5 pb-5">
+<input type="text" class="form-control" [(ngModel)]="termToSearch" name="searchName" placeholder="Wpisz aby szukać">
+  </div>
 </form>
 <div *ngIf="termToSearch">
   <span>Wyszukiwana fraza: <b>{{ termToSearch }}</b></span>
 </div>
-<ul>
-  <li *ngFor="let item of allListToSave | filterSearch: termToSearch"><img src="{{ item.images.xs }}"> {{ item.name }}</li>
-</ul>
+<div>
+  <span>Postaci w bazie: <b>{{ allListToSave.length }}</b></span>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4 center-class"
+>
+  <div class="card" style="width: 18rem" *ngFor="let item of allListToSave | filterSearch: termToSearch">
+    <img class="card-img-top" src="{{ item.images.lg }}">
+    <div class="card-body">
+    <h5 class="card-title">{{ item.name }}</h5>
+    <span class="card-text">Also knows as: {{ item.biography.aliases }}</span><br>
+    <span class="card-text">Full name: {{ item.biography.fullName }}</span>
+    </div>
+    </div>
+</div>

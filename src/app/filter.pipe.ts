@@ -12,6 +12,6 @@ export class FilterPipe implements PipeTransform {
       return (
         item.name.toLowerCase().includes(termToSearch.toLowerCase()) ||
         item.biography.fullName.toLowerCase().includes(termToSearch.toLowerCase()))
-    })
+      })
   }
 }

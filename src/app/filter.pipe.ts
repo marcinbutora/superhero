@@ -10,7 +10,8 @@ export class FilterPipe implements PipeTransform {
     if (termToSearch === undefined) return heroes;
     return heroes?.filter(function(item) {
       return (
-        item.name.toLowerCase().includes(termToSearch.toLowerCase()))
+        item.name.toLowerCase().includes(termToSearch.toLowerCase()) ||
+        item.biography.fullName.toLowerCase().includes(termToSearch.toLowerCase()))
     })
   }
 }

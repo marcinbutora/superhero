@@ -2,6 +2,9 @@
 <form id="filterSearch">
 <input type="text" [(ngModel)]="termToSearch" name="searchName" placeholder="Wpisz aby szukać">
 </form>
+<div *ngIf="termToSearch">
+  <span>Wyszukiwana fraza: <b>{{ termToSearch }}</b></span>
+</div>
 <ul>
   <li *ngFor="let item of allListToSave | filterSearch: termToSearch"><img src="{{ item.images.xs }}"> {{ item.name }}</li>
 </ul>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ConnectService } from './connect.service';
 import { heroes } from './mock_data/superheroes';
 import { Superhero } from './model/superhero';
 

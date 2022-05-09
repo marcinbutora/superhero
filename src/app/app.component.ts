@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   superheroesList: Superhero[] = heroes;
   termToSearch: string = "";
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit() {
     this.allListToSave = this.superheroesList;

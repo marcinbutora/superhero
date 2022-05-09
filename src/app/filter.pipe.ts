@@ -7,11 +7,12 @@ import { Superhero } from './model/superhero';
 export class FilterPipe implements PipeTransform {
 
   transform(heroes: Superhero[] | undefined, termToSearch: string) {
-    if (termToSearch === undefined) return heroes;
+    if (termToSearch == "") return heroes;
     return heroes?.filter(function(item) {
       return (
         item.name.toLowerCase().includes(termToSearch.toLowerCase()) ||
-        item.biography.fullName.toLowerCase().includes(termToSearch.toLowerCase()))
-      })
+        item.biography.fullName.toLowerCase().includes(termToSearch.toLowerCase()) ||
+        item.biography.aliases.toLocaleString().toLowerCase().includes(termToSearch.toLowerCase())
+    )})
   }
 }

@@ -1,5 +1,4 @@
-import { Component, HostListener, OnInit, ViewChildren } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { heroes } from './mock_data/superheroes';
 import { Superhero } from './model/superhero';
 
@@ -13,8 +12,6 @@ export class AppComponent implements OnInit {
   allListToSave: Superhero[] = [];
   superheroesList: Superhero[] = heroes;
   termToSearch: string = "";
-
-  constructor() {}
 
   ngOnInit() {
     this.allListToSave = this.superheroesList;

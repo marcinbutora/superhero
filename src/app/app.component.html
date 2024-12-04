@@ -1,43 +1,25 @@
 <h1>{{ title }}</h1>
 <form id="filterSearch">
   <div class="input-search">
-    <input
-      type="text"
-      class="form-control"
-      [(ngModel)]="termToSearch"
-      name="searchName"
-      placeholder="Wpisz aby szukać"
-    />
+    <input type="text" class="form-control" [(ngModel)]="termToSearch" name="searchName"
+      placeholder="Wpisz aby szukać" />
   </div>
 </form>
 <div *ngIf="termToSearch" class="center-class">
-  <span
-    >Searching phrase: <b>{{ termToSearch }}</b
-    >, founded records:
-    <b>{{ (allListToSave | filterSearch: termToSearch)?.length }}</b></span
-  >
+  <span>Searching phrase: <b>{{ termToSearch }}</b>, founded records:
+    <b>{{ (allListToSave | filterSearch: termToSearch)?.length }}</b></span>
 </div>
 <div class="center-class">
-  <span
-    >Superheroes in database: <b>{{ allListToSave.length }}</b></span
-  >
+  <span>Superheroes in database: <b>{{ allListToSave.length }}</b></span>
 </div>
 <div class="row row-cols-1 row-cols-md-3 g-4 center-class">
-  <div
-    class="card"
-    style="width: 18rem"
-    *ngFor="let item of allListToSave | filterSearch: termToSearch"
-  >
+  <div class="card" style="width: 18rem" *ngFor="let item of allListToSave | filterSearch: termToSearch">
     <img class="card-img-top" src="{{ item.images.md }}" />
     <div class="card-body">
       <h5 class="card-title">{{ item.name }}</h5>
-      <span class="card-text">Also knows as: {{ item.biography.aliases }}</span
-      ><br />
-      <span class="card-text">Full name: {{ item.biography.fullName }}</span
-      ><br />
-      <span class="card-text" *ngIf="item.work.occupation !== '-'"
-        >Occupation: {{ item.work.occupation }}</span
-      >
+      <span class="card-text">Also knows as: {{ item.biography.aliases }}</span><br />
+      <span class="card-text">Full name: {{ item.biography.fullName }}</span><br />
+      <span class="card-text" *ngIf="item.work.occupation !== '-'">Occupation: {{ item.work.occupation }}</span>
     </div>
   </div>
 </div>
